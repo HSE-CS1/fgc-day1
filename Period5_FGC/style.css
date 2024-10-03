@@ -1,0 +1,124 @@
+:root{
+    --main-color: #16405B;
+    --green-color: #007C4F;
+    --bg-color: #D8E5E3;
+    --white-color: #F8F8F8;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+}
+img{
+    display:block;
+    max-width: 100%;
+}
+
+/* temporary */
+.gi{
+    border: 3px solid tomato;
+    min-height: 75px;
+}
+
+body{
+    font-family: system-ui;
+    background-color: var(--bg-color);
+}
+.container{
+    background-color: var(--white-color);
+    width: 90%;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.main-grid{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: "n h  h  h  h"
+                         "n nc sc p  s"
+                         "n e  e  e  e"
+                         "n c1 c2 c3 c4"
+                         "n f  f  f  f";
+}
+/* these rules will apply until the screen gets to 801px */
+@media (max-width: 800px){
+    .main-grid{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "n  n"
+                             "h  h"
+                             "e  e"
+                             "nc sc"
+                             "p  s"
+                             "c1 c3"
+                             "c2 c4"
+                             "f  f";
+    }
+}
+/* these rules will apply until the screen gets to 501px */
+@media (max-width:500px){
+    .main-grid{
+        grid-template-areas: "n  n"
+                             "h  h"
+                             "s  s"
+                             "e  e"
+                             "p  p"
+                             "nc nc"
+                             "sc sc"
+                             "c4 c4"
+                             "c2 c2"
+                             "c1 c1"
+                             "c3 c3"
+                             "f  f";
+    }
+}
+
+.nav-bar{
+    grid-area: n;
+}
+.hero{
+    grid-area: h;
+    background-image: url(./images/course_bg.jpg);
+    background-color: var(--main-color);
+    color: var(--white-color);
+    min-height: 80vh;
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign-up{
+    grid-area: e;
+}
+.north-course{
+    grid-area: nc;
+}
+.south-course{
+    grid-area: sc;
+}
+.pros{
+    grid-area: p;
+}
+.simulation{
+    grid-area: s;
+}
+.col1{
+    grid-area: c1;
+}
+.col2{
+    grid-area: c2;
+}
+.col3{
+    grid-area: c3;
+}
+.col4{
+    grid-area: c4;
+}
+
+.footer{
+    grid-area: f;
+}

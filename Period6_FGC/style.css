@@ -1,0 +1,130 @@
+:root {
+    --main-color: #16405B;
+    --green-color: #007C4F;
+    --bg-color: #D8E5E3;
+    --white-color: #F8F8F8;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: system-ui;
+}
+
+/* temporary */
+.gi {
+    border: 3px solid tomato;
+    min-height: 75px;
+}
+
+.container {
+    background-color: var(--white-color);
+    width: 90%;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.main-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: "n h  h  h  h"
+                         "n nc sc p  s"
+                         "n e  e  e  e"
+                         "n c1 c2 c3 c4"
+                         "n f  f  f  f";
+}
+
+/* for screen sizes that are 800 pixesl or less */
+@media (max-width:800px){
+    .main-grid{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "n  n"
+                             "h  h"
+                             "e  e"
+                             "nc sc"
+                             "s  p"
+                             "c1 c3"
+                             "c2 c4"
+                             "f  f";
+    }
+}
+/* for screens that are 500px or less */
+@media (max-width: 500px){
+    .main-grid{
+        grid-template-areas:"n  n"
+        "h  h"
+        "nc nc"
+        "e  e"
+        "sc sc"
+        "p  p"
+        "s  s"
+        "c4 c4"
+        "c2 c2"
+        "c1 c1"
+        "c3 c3"
+        "f  f";
+    }
+}
+
+.nav-bar {
+    grid-area: n;
+}
+
+.hero {
+    grid-area: h;
+}
+
+.north-course {
+    grid-area: nc;
+}
+
+.south-course {
+    grid-area: sc;
+}
+
+.footer {
+    grid-area: f;
+}
+
+.pros {
+    grid-area: p;
+}
+
+.sign-up {
+    grid-area: e;
+}
+
+.col1 {
+    grid-area: c1;
+}
+
+.col2 {
+    grid-area: c2;
+}
+
+.col3 {
+    grid-area: c3;
+}
+
+.col4 {
+    grid-area: c4;
+}
+.simulation{
+    grid-area: s;
+}
